@@ -2,6 +2,7 @@ let humanScore = 0;
 let computerScore = 0;
 
 let exit = false;
+let message;
 
 function getComputerChoice() {
     let randomNum = Math.floor((Math.random() * 3) + 1);
@@ -41,33 +42,33 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock") {
         if (computerChoice === "paper") {
-            alert("You Lost! Paper beats Rock!");
+            message = ("You Lost! Paper beats Rock!");
             return computerScore++;
         } else if (computerChoice === "scissors") {
-            alert("You Won! Rock beats Scissors");
+            message = ("You Won! Rock beats Scissors");
             return humanScore++;
         } else {
-            alert("You Tied! Rock ties with Rock");
+            message = ("You Tied! Rock ties with Rock");
         }
     } else if (humanChoice === "paper") {
         if (computerChoice === "scissors") {
-            alert("You Lost! Scissors beats Paper");
+            message = ("You Lost! Scissors beats Paper");
             return computerScore++;
         } else if (computerChoice === "rock") {
-            alert("You Won! Paper beats Rock");
+            message = ("You Won! Paper beats Rock");
             return humanScore++;
         } else {
-            alert("You Tied! Paper ties with Paper")
+            message = ("You Tied! Paper ties with Paper")
         }
     } else if (humanChoice === "scissors") {
         if (computerChoice === "rock") {
-            alert("You Lost! Rock beats Scissors");
+            message = ("You Lost! Rock beats Scissors");
             return computerScore++;
         } else if (computerChoice === "paper") {
-            alert("You Won! Scissors beats Paper");
+            message = ("You Won! Scissors beats Paper");
             return humanScore++;
         } else {
-            alert("You Tied! Scissors ties with Scissors");
+            message = ("You Tied! Scissors ties with Scissors");
         }
     }
 }
@@ -79,9 +80,11 @@ function playGame(){
         let computerSelection = getComputerChoice();
 
         playRound(humanSelection, computerSelection);
-
+        
         if (exit) {
             break;
+        } else {
+            alert(message + "\n\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
         }
     }
     if (!exit) {
