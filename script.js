@@ -51,40 +51,6 @@ function playRound(humanChoice, computerChoice) {
     return results[humanChoice][computerChoice] === "Win" ? humanScore++ : computerScore++;
 }
 
-/** function playRound(humanChoice, computerChoice) {
-    if (humanChoice === "rock") {
-        if (computerChoice === "paper") {
-            message = ("You Lost! Paper beats Rock!");
-            return computerScore++;
-        } else if (computerChoice === "scissors") {
-            message = ("You Won! Rock beats Scissors");
-            return humanScore++;
-        } else {
-            message = ("You Tied! Rock ties with Rock");
-        }
-    } else if (humanChoice === "paper") {
-        if (computerChoice === "scissors") {
-            message = ("You Lost! Scissors beats Paper");
-            return computerScore++;
-        } else if (computerChoice === "rock") {
-            message = ("You Won! Paper beats Rock");
-            return humanScore++;
-        } else {
-            message = ("You Tied! Paper ties with Paper")
-        }
-    } else if (humanChoice === "scissors") {
-        if (computerChoice === "rock") {
-            message = ("You Lost! Rock beats Scissors");
-            return computerScore++;
-        } else if (computerChoice === "paper") {
-            message = ("You Won! Scissors beats Paper");
-            return humanScore++;
-        } else {
-            message = ("You Tied! Scissors ties with Scissors");
-        }
-    }
-}
- */
 function playGame(){
     
     for (let i = 0; i < 5; i++) {
