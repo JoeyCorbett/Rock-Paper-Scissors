@@ -40,6 +40,18 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
+    const results = { 
+        rock: { scissors: "Win", paper: "Lose", rock: "Tie" },
+        paper: {rock: "Win", scissors: "Lose", paper: "Tie" },
+        scissors: {paper: "Win", rock: "Lose", scissors: "Tie"},
+    };
+
+    message = `You ${results[humanChoice][computerChoice]}!`;
+    
+    return results[humanChoice][computerChoice] === "Win" ? humanScore++ : computerScore++;
+}
+
+/** function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock") {
         if (computerChoice === "paper") {
             message = ("You Lost! Paper beats Rock!");
@@ -72,7 +84,7 @@ function playRound(humanChoice, computerChoice) {
         }
     }
 }
-
+ */
 function playGame(){
     
     for (let i = 0; i < 5; i++) {
@@ -84,7 +96,7 @@ function playGame(){
         if (exit) {
             break;
         } else {
-            alert(message + "\n\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
+            alert(message + "\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
         }
     }
     if (!exit) {
