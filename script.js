@@ -1,6 +1,8 @@
 let humanScore = 0;
 let computerScore = 0;
 
+let exit = false;
+
 function getComputerChoice() {
     let randomNum = Math.floor((Math.random() * 3) + 1);
     
@@ -17,8 +19,13 @@ function getHumanChoice() {
     while (true) {
         let choice = prompt("Choose Rock, Paper, or Scissors");
         if (choice === null) {
-            alert("User Cancelled Prompt");
-            break;
+            let confirmChoice = window.confirm("Are you sure you want to exit?");
+            if (confirmChoice) {
+                exit = true;
+                break;
+            } else {
+                continue;
+            }
         } else if (choice.toLowerCase() === "rock") {
             return "rock";
         } else if (choice.toLowerCase() === "paper") {
@@ -67,23 +74,25 @@ function playRound(humanChoice, computerChoice) {
 
 function playGame(){
     
-
-    
-
     for (let i = 0; i < 5; i++) {
         let humanSelection = getHumanChoice();
         let computerSelection = getComputerChoice();
 
         playRound(humanSelection, computerSelection);
 
-        
-        
+        if (exit) {
+            break;
+        }
+    }
+    if (!exit) {
+        if (humanScore > computerScore) {
+            alert("You Won!\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
+        } else if (humanScore < computerScore) {
+            alert("You Lost\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
+        } else {
+            alert("You Tied!");
+        }
     }
 }
 
-
 playGame();
-
-
-console.log("Human Score: " + humanScore);
-console.log("Computer Score: " + computerScore);
