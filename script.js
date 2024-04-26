@@ -31,46 +31,59 @@ function getHumanChoice() {
     }       
 }
 
-
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock") {
         if (computerChoice === "paper") {
             alert("You Lost! Paper beats Rock!");
-            computerScore++;
+            return computerScore++;
         } else if (computerChoice === "scissors") {
             alert("You Won! Rock beats Scissors");
-            humanScore++;
+            return humanScore++;
         } else {
             alert("You Tied! Rock ties with Rock");
         }
     } else if (humanChoice === "paper") {
         if (computerChoice === "scissors") {
             alert("You Lost! Scissors beats Paper");
-            computerScore++;
+            return computerScore++;
         } else if (computerChoice === "rock") {
             alert("You Won! Paper beats Rock");
-            humanScore++;
+            return humanScore++;
         } else {
             alert("You Tied! Paper ties with Paper")
         }
     } else if (humanChoice === "scissors") {
         if (computerChoice === "rock") {
             alert("You Lost! Rock beats Scissors");
-            computerScore++;
+            return computerScore++;
         } else if (computerChoice === "paper") {
             alert("You Won! Scissors beats Paper");
-            humanScore++;
+            return humanScore++;
         } else {
             alert("You Tied! Scissors ties with Scissors");
         }
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame(){
+    
 
-playRound(humanSelection, computerSelection);
+    
 
-console.log(humanScore);
-console.log(computerScore);
+    for (let i = 0; i < 5; i++) {
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
 
+        playRound(humanSelection, computerSelection);
+
+        
+        
+    }
+}
+
+
+playGame();
+
+
+console.log("Human Score: " + humanScore);
+console.log("Computer Score: " + computerScore);
