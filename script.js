@@ -40,10 +40,22 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    const results = { 
-        rock: { scissors: "You Won! Rock beats Scissors", paper: "You Lost! Paper beats Rock", rock: "You Tied! Rock ties with Rock" },
-        paper: {rock: "You Won! Paper beats Rock", scissors: "You Lost! Scissors beats Paper", paper: "You Tied! Paper ties with Paper" },
-        scissors: {paper: "You Won! Scissors beats Paper", rock: "You Lost! Rock beats Scissors", scissors: "You Tied! Scissors ties with Scissors"},
+    const results = {
+      rock: {
+        scissors: "You Won! Rock beats Scissors",
+        paper: "You Lost! Paper beats Rock",
+        rock: "You Tied! Rock ties with Rock",
+      },
+      paper: {
+        rock: "You Won! Paper beats Rock",
+        scissors: "You Lost! Scissors beats Paper",
+        paper: "You Tied! Paper ties with Paper",
+      },
+      scissors: {
+        paper: "You Won! Scissors beats Paper",
+        rock: "You Lost! Rock beats Scissors",
+        scissors: "You Tied! Scissors ties with Scissors",
+      },
     };
 
     message = results[humanChoice][computerChoice];
@@ -78,5 +90,4 @@ function playGame(){
         }
     }
 }
-
 playGame();
