@@ -67,18 +67,16 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame(){
-    
-    for (let i = 0; i < 5; i++) {
-        let humanSelection = getHumanChoice();
-        let computerSelection = getComputerChoice();
 
-        playRound(humanSelection, computerSelection);
-        
-        if (exit) {
-            break;
-        } else {
-            alert(message + "\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
-        }
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+
+    playRound(humanSelection, computerSelection);
+    
+    if (exit) {
+        break;
+    } else {
+        alert(message + "\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
     }
     if (!exit) {
         if (humanScore > computerScore) {
