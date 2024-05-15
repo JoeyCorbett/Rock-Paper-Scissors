@@ -74,7 +74,6 @@ function playGame(){
     playRound(humanSelection, computerSelection);
     
     if (exit) {
-        break;
     } else {
         alert(message + "\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
     }
@@ -88,4 +87,19 @@ function playGame(){
         }
     }
 }
-playGame();
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        if (button.id === "rockBtn") {
+            playRound("rock", computerSelection);
+        } else if (button.id === "paperBtn") {
+            playRound("paper", computerSelection);
+        } else if (button.id === "scissorsBtn") {
+            playRound("scissors", computerSelection);
+        }
+    });
+});
+
+// playGame();
