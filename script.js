@@ -3,9 +3,10 @@ let computerScore = 0;
 
 let message;
 
-const resultsPara = document.querySelector(".results p");
+const messageSpan = document.querySelector(".message");
+const scoreSpan = document.querySelector(".score")
 
-resultsPara.textContent = "Choose a button to start";
+messageSpan.textContent = "Choose a button to start";
 
 const rockBtn = document.querySelector("#rockBtn");
 const paperBtn = document.querySelector("#paperBtn");
@@ -54,7 +55,8 @@ function playRound(humanChoice, computerChoice) {
 function playGame(userChoice, computer) {
 
     playRound(userChoice, computer);
-    resultsPara.textContent = `${message}\nUserScore: ${humanScore}\nComputer Score: ${computerScore}`;
+    messageSpan.textContent = `${message}`;
+    scoreSpan.textContent = `UserScore: ${humanScore} Computer Score: ${computerScore}`;
 
     if (humanScore >= 5) {
         alert("Game Over\n\nYou Won!\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
@@ -62,16 +64,15 @@ function playGame(userChoice, computer) {
     } else if (computerScore >= 5) {
         alert("Game Over\n\nYou Lost\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
         newGame()
-    } else if (humanScore === 5 && computerScore === 5) {
-        alert("Game Over\n\nYou Tied!\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
-        newGame();
     }
 }
 
 function newGame() {
     humanScore = 0;
     computerScore = 0;
-    resultsPara.textContent = "Choose a button to start";
+    messageSpan.textContent = '';
+    scoreSpan.textContent = '';
+    messageSpan.textContent = "Choose a button to start";
 }
 
 rockBtn.addEventListener("click", () => {
