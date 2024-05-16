@@ -1,8 +1,15 @@
 let humanScore = 0;
 let computerScore = 0;
 
-let exit = false;
 let message;
+
+const resultsPara = document.querySelector(".results p");
+
+resultsPara.textContent = "Choose a button to start";
+
+const rockBtn = document.querySelector("#rockBtn");
+const paperBtn = document.querySelector("#paperBtn");
+const scissorsBtn = document.querySelector("#scissorsBtn");
 
 function getComputerChoice() {
     let randomNum = Math.floor((Math.random() * 3) + 1);
@@ -14,29 +21,6 @@ function getComputerChoice() {
     } else {
         return "scissors"
     }
-}
-
-function getHumanChoice() {
-    while (true) {
-        let choice = prompt("Choose Rock, Paper, or Scissors");
-        if (choice === null) {
-            let confirmChoice = window.confirm("Are you sure you want to exit?");
-            if (confirmChoice) {
-                exit = true;
-                break;
-            } else {
-                continue;
-            }
-        } else if (choice.toLowerCase() === "rock") {
-            return "rock";
-        } else if (choice.toLowerCase() === "paper") {
-            return "paper";
-        } else if (choice.toLowerCase() === "scissors") {
-            return "scissors";
-        } else {
-            alert("[Invalid Input] Please Try Again.");
-        }
-    }       
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -63,43 +47,52 @@ function playRound(humanChoice, computerChoice) {
         return humanScore++;
     } else if (results[humanChoice][computerChoice].startsWith("You Lost")) {
         return computerScore++;
-    } 
-}
-
-function playGame(){
-
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
-
-    playRound(humanSelection, computerSelection);
-    
-    if (exit) {
-    } else {
-        alert(message + "\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
-    }
-    if (!exit) {
-        if (humanScore > computerScore) {
-            alert("Game Over\n\nYou Won!\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
-        } else if (humanScore < computerScore) {
-            alert("Game Over\n\nYou Lost\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
-        } else {
-            alert("Game Over\n\nYou Tied!\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
-        }
     }
 }
 
-const buttons = document.querySelectorAll("button");
 
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        if (button.id === "rockBtn") {
-            playRound("rock", computerSelection);
-        } else if (button.id === "paperBtn") {
-            playRound("paper", computerSelection);
-        } else if (button.id === "scissorsBtn") {
-            playRound("scissors", computerSelection);
-        }
-    });
+function playGame(userChoice, computer) {
+
+    playRound(userChoice, computer);
+    resultsPara.textContent = `${message}\nUserScore: ${humanScore}\nComputer Score: ${computerScore}`;
+
+    if (humanScore >= 5) {
+        alert("Game Over\n\nYou Won!\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
+        newGame()
+    } else if (computerScore >= 5) {
+        alert("Game Over\n\nYou Lost\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
+        newGame()
+    } else if (humanScore === 5 && computerScore === 5) {
+        alert("Game Over\n\nYou Tied!\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
+        newGame();
+    }
+}
+
+function newGame() {
+    humanScore = 0;
+    computerScore = 0;
+    resultsPara.textContent = "Choose a button to start";
+}
+
+rockBtn.addEventListener("click", () => {
+    playGame("rock", getComputerChoice());
 });
 
-// playGame();
+paperBtn.addEventListener("click", () => {
+    playGame("paper", getComputerChoice());
+});
+
+scissorsBtn.addEventListener("click", () => {
+    playGame("scissors", getComputerChoice())
+})
+
+
+
+
+
+
+
+
+
+
+
