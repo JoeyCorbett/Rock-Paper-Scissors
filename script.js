@@ -63,13 +63,13 @@ function playGame(userChoice, computer) {
 
     playRound(userChoice, computer);
     messageSpan.textContent = `${message}`;
-    scoreSpan.textContent = `UserScore: ${humanScore} Computer Score: ${computerScore}`;
+    scoreSpan.textContent = `Player Score: ${humanScore} | Computer Score: ${computerScore}`;
 
     if (humanScore >= 5) {
-        alert("Game Over\n\nYou Won!\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
+        alert("Game Over\n\nYou Won!\n" + "Player Score: " + humanScore + " | " + "Computer Score: " + computerScore);
         newGame()
     } else if (computerScore >= 5) {
-        alert("Game Over\n\nYou Lost\n" + "User Score: " + humanScore + "\n" + "Computer Score: " + computerScore);
+        alert("Game Over\n\nYou Lost\n" + "Player Score: " + humanScore + " | " + "Computer Score: " + computerScore);
         newGame()
     }
 }
@@ -80,7 +80,7 @@ function newGame() {
     messageSpan.textContent = '';
     scoreSpan.textContent = '';
     messageSpan.textContent = "Choose a button to start";
-    scoreSpan.textContent = "Player Score: 0     Computer Score: 0"
+    scoreSpan.textContent = "Player Score: 0 | Computer Score: 0"
     computerField.textContent = "❓";
 }
 
