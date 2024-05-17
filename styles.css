@@ -17,6 +17,8 @@ body {
     border: 3px solid black;
     border-radius: 25px;
     background-color: rgb(243, 240, 240);
+    width: 250px;
+    height: 80px;
 }
 
 button {
@@ -32,6 +34,17 @@ button:hover {
     transform: translateY(-3px);
 }
 
-h1 {
+#header {
     font-size: 40px;
 }
+
+
+.computerContainer h1, span {
+    font-size: 80px;
+    margin-bottom: 25px;
+}
+
+.computerContainer span {
+    font-size: 80px;
+}
+
