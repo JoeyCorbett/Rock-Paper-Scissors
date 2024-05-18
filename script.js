@@ -94,7 +94,7 @@ function newGame() {
     messageSpan.textContent = '';
     pScore.textContent = '';
     cScore.textContent = '';
-    messageSpan.textContent = "Press Start Button";
+    messageSpan.textContent = "Choose a button";
     startBtn.textContent = "Start Game";
     pScore.textContent = "Player Score: 0";
     cScore.textContent = "Computer Score: 0";
