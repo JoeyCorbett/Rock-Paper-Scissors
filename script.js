@@ -4,11 +4,14 @@ let computerScore = 0;
 let message;
 
 const messageSpan = document.querySelector(".message");
-const scoreSpan = document.querySelector(".score")
+const pScore = document.querySelector(".pScore")
+const cScore = document.querySelector(".cScore");
 const computerField = document.querySelector(".computerField");
 
 messageSpan.textContent = "Choose a button";
-scoreSpan.textContent = "Player Score: 0 | Computer Score: 0"
+
+pScore.textContent = "Player Score: 0";
+cScore.textContent = "Computer Score: 0";
 computerField.textContent = "❓";
 
 
@@ -63,7 +66,8 @@ function playGame(userChoice, computer) {
 
     playRound(userChoice, computer);
     messageSpan.textContent = `${message}`;
-    scoreSpan.textContent = `Player Score: ${humanScore} | Computer Score: ${computerScore}`;
+    pScore.textContent = `Player Score: ${humanScore}`;
+    cScore.textContent = `Computer Score: ${computerScore}`;
 
     if (humanScore >= 5) {
         alert("Game Over\n\nYou Won!\n" + "Player Score: " + humanScore + " | " + "Computer Score: " + computerScore);
@@ -78,9 +82,11 @@ function newGame() {
     humanScore = 0;
     computerScore = 0;
     messageSpan.textContent = '';
-    scoreSpan.textContent = '';
+    pScore.textContent = '';
+    cScore.textContent = '';
     messageSpan.textContent = "Choose a button to start";
-    scoreSpan.textContent = "Player Score: 0 | Computer Score: 0"
+    pScore.textContent = "Player Score: 0";
+    cScore.textContent = "Computer Score: 0";
     computerField.textContent = "❓";
 }
 
