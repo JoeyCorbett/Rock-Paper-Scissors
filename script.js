@@ -2,13 +2,15 @@ let humanScore = 0;
 let computerScore = 0;
 
 let message;
+let isActive;
 
+const startBtn = document.querySelector(".startBtn");
 const messageSpan = document.querySelector(".message");
 const pScore = document.querySelector(".pScore")
 const cScore = document.querySelector(".cScore");
 const computerField = document.querySelector(".computerField");
 
-messageSpan.textContent = "Choose a button";
+messageSpan.textContent = "Press Start Button";
 
 pScore.textContent = "Player Score: 0";
 cScore.textContent = "Computer Score: 0";
@@ -70,11 +72,19 @@ function playGame(userChoice, computer) {
     cScore.textContent = `Computer Score: ${computerScore}`;
 
     if (humanScore >= 5) {
-        alert("Game Over\n\nYou Won!\n" + "Player Score: " + humanScore + " | " + "Computer Score: " + computerScore);
-        newGame()
+        messageSpan.textContent = "Game Over: You Won!";
+        startBtn.textContent = "Play Again";
+        isActive = false;
+        startBtn.addEventListener("click", () => {
+            newGame()
+        });
     } else if (computerScore >= 5) {
-        alert("Game Over\n\nYou Lost\n" + "Player Score: " + humanScore + " | " + "Computer Score: " + computerScore);
-        newGame()
+        messageSpan.textContent = "Game Over: You Lost";
+        startBtn.textContent = "Try Again";
+        isActive = false;
+        startBtn.addEventListener("click", () => {
+            newGame();
+        })
     }
 }
 
@@ -84,26 +94,29 @@ function newGame() {
     messageSpan.textContent = '';
     pScore.textContent = '';
     cScore.textContent = '';
-    messageSpan.textContent = "Choose a button to start";
+    messageSpan.textContent = "Press Start Button";
+    startBtn.textContent = "Start Game";
     pScore.textContent = "Player Score: 0";
     cScore.textContent = "Computer Score: 0";
     computerField.textContent = "❓";
 }
 
 rockBtn.addEventListener("click", () => {
-    playGame("rock", getComputerChoice());
+    if (isActive) playGame("rock", getComputerChoice());
 });
 
 paperBtn.addEventListener("click", () => {
-    playGame("paper", getComputerChoice());
+    if (isActive) playGame("paper", getComputerChoice());
 });
 
 scissorsBtn.addEventListener("click", () => {
-    playGame("scissors", getComputerChoice())
-})
+    if (isActive) playGame("scissors", getComputerChoice())
+})    
 
-
-
+startBtn.addEventListener("click", () => {
+    isActive = true;
+    messageSpan.textContent = "Choose a button";
+});
 
 
 
