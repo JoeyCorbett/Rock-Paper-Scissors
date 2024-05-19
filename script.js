@@ -75,9 +75,15 @@ function playGame(userChoice, computer) {
         messageSpan.textContent = "Game Over: You Won!";
         startBtn.textContent = "Play Again";
         isActive = false;
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
         startBtn.addEventListener("click", () => {
             newGame()
         });
+        
     } else if (computerScore >= 5) {
         messageSpan.textContent = "Game Over: You Lost";
         startBtn.textContent = "Try Again";
