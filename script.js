@@ -76,8 +76,8 @@ function playGame(userChoice, computer) {
         startBtn.textContent = "Play Again";
         isActive = false;
         confetti({
-            particleCount: 100,
-            spread: 70,
+            particleCount: 200,
+            spread: 130,
             origin: { y: 0.6 }
         });
         startBtn.addEventListener("click", () => {
