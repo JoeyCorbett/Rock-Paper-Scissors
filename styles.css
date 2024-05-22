@@ -23,7 +23,7 @@ body {
     align-items: center;
     border: 5px solid black;
     height: 700px;
-    width: 580px;
+    min-width: 570px;
     border-radius: 50px;
     background-color: rgb(206, 206, 206);
 }
@@ -46,6 +46,7 @@ body {
     margin-top: 40px;
     margin-bottom: 10px;
 }
+
 .pScore, .cScore {
     font-weight: bold;
     font-size: 26px;
@@ -80,6 +81,7 @@ body {
 .computerContainer span {
     font-size: 67px;
 }
+
 .computerContainer h1, span {
     font-size: 90px;
     margin-bottom: 25px;
@@ -131,4 +133,55 @@ footer p{
 
 .fa-brands:hover {
     transform: rotate(360deg) scale(1.2);
+}
+
+@media screen and (max-width: 580px) {
+    .containerGame {
+        height: 550px;
+        min-width: 340px;
+    }
+
+    #header {
+        font-size: 26px;
+    }
+
+    #rockBtn, #paperBtn, #scissorsBtn {
+        font-size: 45px;
+    }
+
+    .message {
+        font-size: 23px;
+    }
+    
+    .scores {
+        width: 300px;
+    }
+
+    .pScore, .cScore {
+        font-size: 17px;
+    }
+    
+
+    .computerContainer span {
+        font-size: 45px;
+    }
+
+    .startBtn {
+        font-size: 10px;
+    }
+
+    .computerContainer h1, span {
+        font-size: 70px;
+    }
+
+    footer p{
+        font-size: 15px;
+    }
+
+    .fa-brands {
+        font-size:21px;
+    }
+
+    
+    
 }
