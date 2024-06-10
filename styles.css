@@ -8,7 +8,7 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     
     margin: 100px;
-    background-color: rgb(235, 235, 235);
+    background-color: #FFFFFF;
 }
 
 .mainContainer {
@@ -25,7 +25,7 @@ body {
     height: 700px;
     min-width: 570px;
     border-radius: 50px;
-    background-color: rgb(206, 206, 206);
+    background-color: #DBE2EB;
 }
 
 .results {
